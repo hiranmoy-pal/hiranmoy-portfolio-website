@@ -1,11 +1,24 @@
 import { Location, isPlatformBrowser } from '@angular/common';
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 export class ScrollService {
     private platformId = inject(PLATFORM_ID);
     private location = inject(Location);
     private animationFrameId: number | null = null;
+
+    private titleService = inject(Title);
+
+    private readonly sectionTitles: Record<string, string> = {
+        home: 'Hiranmoy Pal | Frontend Developer (Angular, Ionic & TypeScript)',
+        about: 'About | Hiranmoy Pal',
+        skills: 'Skills | Hiranmoy Pal',
+        experience: 'Work Experience | Hiranmoy Pal',
+        projects: 'Projects | Hiranmoy Pal',
+        education: 'Education | Hiranmoy Pal',
+        contact: 'Contact | Hiranmoy Pal',
+    };
 
     isProgrammaticScroll = false;
 
@@ -18,6 +31,11 @@ export class ScrollService {
         if (currentPath !== targetPath) {
             this.location.replaceState(targetPath);
         }
+
+        // Inside updateUrl(sectionId: string):
+        this.titleService.setTitle(
+            this.sectionTitles[sectionId] ?? this.sectionTitles['home']
+        );
     }
 
     scrollToSection(sectionId: string, event?: Event, duration = 900): void {
