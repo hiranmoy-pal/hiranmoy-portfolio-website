@@ -1,0 +1,60 @@
+<div class="skills-section">
+    <div class="skills-container">
+        <!-- Header -->
+        <div class="section-head">
+            <span class="section-tag">
+                <i class="fa fa-bolt" aria-hidden="true"></i>
+                Tech Arsenal
+            </span>
+            <h2 class="section-title">
+                Tools &amp; <span class="gradient-text">Technologies</span> I build with.
+            </h2>
+        </div>
+
+        <!-- Kinetic Marquee -->
+        <div class="marquee-shell" aria-hidden="true">
+            <div class="marquee-track">
+                @for (item of marqueeStack; track item) {
+                <span class="marquee-pill">{{ item }}</span>
+                }
+                @for (item of marqueeStack; track item + '-dup') {
+                <span class="marquee-pill">{{ item }}</span>
+                }
+            </div>
+        </div>
+
+        <!-- Signal Filter Tabs -->
+        <div class="filter-bar" role="tablist" aria-label="Filter skills by category">
+            @for (tab of filterTabs; track tab.key) {
+            <button type="button" role="tab" class="filter-btn" [class.active]="activeCategory() === tab.key"
+                [attr.aria-selected]="activeCategory() === tab.key" (click)="setCategory(tab.key)">
+                {{ tab.label }}
+            </button>
+            }
+        </div>
+
+        <!-- Skill Cards Grid -->
+        <div class="skills-grid" [class.single-view]="activeCategory() !== 'all'">
+            @for (group of visibleGroups(); track group.key) {
+            <article class="skill-card" [class.wide-card]="group.key === 'technologies' && activeCategory() === 'all'">
+                <div class="card-header">
+                    <div class="icon-box">
+                        <i class="fa" [ngClass]="group.icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="header-text">
+                        <h3>{{ group.title }}</h3>
+                        <span>{{ group.subtitle }}</span>
+                    </div>
+                    <span class="count-badge">{{ group.items.length }}</span>
+                </div>
+
+                <div class="skill-chips">
+                    @for (skill of group.items; track skill) {
+                    <span class="skill-chip">{{ skill }}</span>
+                    }
+                </div>
+            </article>
+            }
+        </div>
+    </div>
+</div>

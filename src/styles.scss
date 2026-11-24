@@ -1,0 +1,156 @@
+:root {
+    /* =========================================
+       LIGHT THEME (High Contrast Editorial Maroon)
+    ========================================= */
+    --primary: linear-gradient(to right, #BA284C 0%, #641386 100%);
+    --primary-light: linear-gradient(to right, #D84C71 0%, #8D36B3 100%);
+    --primary-soft: rgba(186, 40, 76, 0.12);
+    --primary-solid: #BA284C;
+    /* Increased opacity for clear visibility */
+
+    /* Backgrounds & Surfaces (Crisp separation!) */
+    --background: #F0EDEE;
+    /* A distinct, cool grayish-blush so white cards POP */
+    --surface: #FFFFFF;
+    /* Pure white for cards to stand out */
+    --surface-elevated: #FFFFFF;
+
+    /* Category/Alt Surfaces */
+    --category-bg: #E6E1E3;
+    /* Visibly darker than the background */
+    --category-card-bg: #FFFFFF;
+
+    /* Text Colors (Sharper, deeper tones for readability) */
+    --text-primary: #1A1113;
+    /* Almost black */
+    --text-secondary: #574B4E;
+    /* Deep taupe/gray */
+    --text-tertiary: #FFFFFF;
+    --category-title: #1A1113;
+    --category-text: #3D3335;
+
+    /* Semantic Status Colors */
+    --danger: #D32F2F;
+    --danger-hover: #B71C1C;
+    --danger-soft: rgba(211, 47, 47, 0.12);
+    --success: #14804A;
+    --warning: #B56B00;
+    --info: #1565C0;
+
+    /* Borders, Shadows & States (Sharper borders!) */
+    --border: #D1C7C9;
+    /* Stronger border so inputs and cards are clearly framed */
+    --outline: #BAA6AA;
+    /* Stronger outline for focus states */
+
+    /* Interactions (Doubled the opacity so you can actually SEE the hover!) */
+    --hover-soft: rgba(186, 40, 76, 0.08);
+    --hover-medium: rgba(186, 40, 76, 0.15);
+    --active: rgba(186, 40, 76, 0.22);
+
+    /* Shadows (Crisper shadows to lift elements off the background) */
+    --shadow-soft: 0 4px 16px rgba(26, 17, 19, 0.06);
+    --shadow-medium: 0 12px 32px rgba(186, 40, 76, 0.12);
+
+    /* Typography & Specials */
+    --font-headline: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Editorial Pearl Gradient */
+    --hero-gradient: linear-gradient(135deg, #F9F3F5 0%, #F4EAED 50%, #EBE2E5 100%);
+    --overlay-bg: rgba(26, 17, 19, 0.55);
+}
+
+.dark-theme {
+    /* =========================================
+           DARK THEME (Cyber Sakura / Obsidian Plum)
+        ========================================= */
+    --primary: linear-gradient(90deg, #E62E6B 0%, #9B2CF3 100%);
+    --primary-light: linear-gradient(90deg, #FF4D88 0%, #B34DFF 100%);
+    --primary-solid: #E62E6B;
+    --primary-soft: rgba(230, 46, 107, 0.14);
+
+    /* Backgrounds & Surfaces (Deep Warm Obsidian-Plum) */
+    --background: #0D090C;
+    --surface: #161115;
+    --surface-elevated: #211920;
+
+    /* Category/Alt Surfaces */
+    --category-bg: #120D11;
+    --category-card-bg: #161115;
+
+    /* Text Colors (Warm Off-White & Muted Rose-Gray) */
+    --text-primary: #F7F2F5;
+    --text-secondary: #A696A0;
+    --text-tertiary: #FFFFFF;
+    --category-title: #F7F2F5;
+    --category-text: #C9BAC3;
+
+    /* Semantic Status Colors (Matched to Reference Badges & Ratings) */
+    --danger: #FF4D6D;
+    --danger-hover: #FF244C;
+    --danger-soft: rgba(255, 77, 109, 0.15);
+    --success: #10D9A0;
+    --warning: #F5B731;
+    --info: #38BDF8;
+
+    /* Borders & Outlines (Crisp Editorial Framing) */
+    --border: #2C2129;
+    --outline: rgba(230, 46, 107, 0.42);
+
+    /* Interactions */
+    --hover-soft: rgba(230, 46, 107, 0.09);
+    --hover-medium: rgba(230, 46, 107, 0.18);
+    --active: rgba(155, 44, 243, 0.24);
+
+    /* Shadows (Deep Black Base + Subtle Magenta/Violet Ambient Glow) */
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(230, 46, 107, 0.05);
+    --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(155, 44, 243, 0.16);
+
+    /* Ambient Plum-Magenta Hero Gradient */
+    --hero-gradient: radial-gradient(circle at top center, rgba(230, 46, 107, 0.14) 0%, #0D090C 55%, #070507 100%);
+    --overlay-bg: rgba(13, 9, 12, 0.86);
+}
+
+/* Replace the bottom of your styles.scss with this */
+html {
+  scroll-behavior: auto; /* Handled smoothly by ScrollService */
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* Smooth GPU-accelerated Section Reveal Animations */
+.reveal-section {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-fade-up {
+  transform: translateY(36px);
+}
+
+.reveal-fade-left {
+  transform: translateX(-36px);
+}
+
+.reveal-fade-right {
+  transform: translateX(36px);
+}
+
+.reveal-zoom-in {
+  transform: scale(0.95);
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}

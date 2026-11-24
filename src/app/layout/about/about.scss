@@ -1,0 +1,299 @@
+.about-section {
+    padding: 88px 24px;
+    background: var(--background);
+}
+
+.about-container {
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+/* Header */
+.section-head {
+    margin-bottom: 40px;
+    max-width: 720px;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary-solid);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    margin: 0;
+    font-family: var(--font-headline);
+    font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+
+    .gradient-text {
+        background: var(--primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.bento-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: var(--outline);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+/* Bio Card */
+.bio-card {
+    grid-column: span 8;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.card-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.company-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--hover-soft);
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+
+    i {
+        color: var(--primary-solid);
+    }
+}
+
+.dot-group {
+    display: inline-flex;
+    gap: 6px;
+
+    span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--border);
+
+        &:first-child {
+            background: var(--primary-solid);
+        }
+    }
+}
+
+.bio-text {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.78;
+    color: var(--text-secondary);
+
+    strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+}
+
+/* Stat Card */
+.stat-card {
+    grid-column: span 4;
+    background: var(--primary);
+    border-color: transparent;
+    color: var(--text-tertiary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    overflow: hidden;
+
+    .stat-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.18);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .stat-number {
+        font-family: var(--font-headline);
+        font-size: 3.1rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+
+        span {
+            font-size: 1.35rem;
+            margin-left: 4px;
+            opacity: 0.9;
+        }
+    }
+
+    .stat-caption {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        opacity: 0.92;
+    }
+}
+
+/* Stack Vibe Card */
+.vibe-card {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    .mini-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-secondary);
+    }
+}
+
+.stack-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    span {
+        padding: 7px 13px;
+        border-radius: 999px;
+        background: var(--hover-soft);
+        border: 1px solid var(--border);
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background: var(--primary);
+            color: var(--text-tertiary);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+/* Pillars Row */
+.pillars-row {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pillar-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .pillar-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: var(--primary-soft);
+        color: var(--primary-solid);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+    }
+
+    h3 {
+        margin: 0;
+        font-family: var(--font-headline);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+    }
+}
+
+/* iPad / Tablet */
+@media (max-width: 992px) {
+    .bio-card {
+        grid-column: span 12;
+        grid-row: auto;
+    }
+
+    .stat-card,
+    .vibe-card {
+        grid-column: span 6;
+    }
+
+    .pillars-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .about-section {
+        padding: 64px 16px;
+    }
+
+    .bento-card {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .stat-card,
+    .vibe-card {
+        grid-column: span 12;
+    }
+
+    .pillars-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,47 @@
+<div class="education-section">
+    <div class="education-container">
+        <!-- Section Header -->
+        <div class="section-head">
+            <span class="section-tag">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                Academic Journey
+            </span>
+            <h2 class="section-title">
+                Education &amp; <span class="gradient-text">Milestones</span>.
+            </h2>
+        </div>
+
+        <!-- Education Cards Grid -->
+        <div class="edu-grid">
+            @for (edu of educationList; track edu.degree) {
+            <article class="edu-card">
+                <div class="edu-top">
+                    <div class="edu-icon">
+                        <i class="fa" [ngClass]="edu.icon" aria-hidden="true"></i>
+                    </div>
+                    <span class="year-badge">{{ edu.year }}</span>
+                </div>
+
+                <div class="edu-body">
+                    <h3 class="edu-degree">{{ edu.degree }}</h3>
+                    <p class="edu-board">
+                        <span class="board-label">{{ edu.institutionLabel }}:</span>
+                        <strong>{{ edu.institution }}</strong>
+                    </p>
+                </div>
+
+                <!-- Animated Score Bar -->
+                <div class="score-block">
+                    <div class="score-row">
+                        <span class="score-label">Percentage</span>
+                        <span class="score-value">{{ edu.percentage }}</span>
+                    </div>
+                    <div class="progress-track" aria-hidden="true">
+                        <div class="progress-fill" [style.width.%]="edu.numericScore"></div>
+                    </div>
+                </div>
+            </article>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="projects-section">
+  <div class="projects-container">
+    <!-- Section Header -->
+    <div class="section-head">
+      <span class="section-tag">
+        <i class="fa fa-code" aria-hidden="true"></i>
+        Featured Work
+      </span>
+      <h2 class="section-title">
+        Things I've <span class="gradient-text">designed &amp; shipped</span>.
+      </h2>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="projects-list">
+      @for (project of projects; track project.title) {
+        <article class="project-showcase">
+          <!-- Left: Animated Browser Mockup Visual -->
+          <div class="showcase-visual">
+            <div class="visual-glow" aria-hidden="true"></div>
+
+            <div class="browser-mockup">
+              <div class="browser-top">
+                <div class="window-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="url-bar">
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                  <span>astra-vastra.vercel.app</span>
+                </div>
+              </div>
+
+              <!-- Stylized Mini E-Commerce Preview -->
+              <div class="browser-body">
+                <div class="mini-hero">
+                  <span class="mini-pill">NEW COLLECTION</span>
+                  <h4>AstraVastra</h4>
+                  <p>SSR-Powered Storefront</p>
+                </div>
+
+                <div class="mini-grid">
+                  <div class="mini-product">
+                    <div class="mini-thumb thumb-1">
+                      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    </div>
+                    <div class="mini-lines">
+                      <span></span>
+                      <span class="short"></span>
+                    </div>
+                  </div>
+
+                  <div class="mini-product">
+                    <div class="mini-thumb thumb-2">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <div class="mini-lines">
+                      <span></span>
+                      <span class="short"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Floating Status Chips -->
+                <div class="preview-chip chip-ssr">
+                  <i class="fa fa-bolt" aria-hidden="true"></i>
+                  <span>Angular 21 + SSR</span>
+                </div>
+
+                <div class="preview-chip chip-jwt">
+                  <i class="fa fa-shield" aria-hidden="true"></i>
+                  <span>JWT Secured</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Project Details -->
+          <div class="showcase-content">
+            <div class="content-top">
+              <span class="project-badge">
+                <span class="badge-dot"></span>
+                {{ project.badge }}
+              </span>
+            </div>
+
+            <div class="title-group">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-subtitle">{{ project.subtitle }}</p>
+            </div>
+
+            <p class="project-desc">{{ project.description }}</p>
+
+            <!-- Feature Bento Pills -->
+            <div class="feature-grid">
+              @for (feat of project.features; track feat.label) {
+                <div class="feature-pill">
+                  <i class="fa" [ngClass]="feat.icon" aria-hidden="true"></i>
+                  <span>{{ feat.label }}</span>
+                </div>
+              }
+            </div>
+
+            <!-- Key Highlights -->
+            <ul class="project-highlights">
+              @for (point of project.highlights; track point) {
+                <li>
+                  <i class="fa fa-check-circle" aria-hidden="true"></i>
+                  <span>{{ point }}</span>
+                </li>
+              }
+            </ul>
+
+            <!-- Tech Stack -->
+            <div class="tech-row">
+              @for (tech of project.techStack; track tech) {
+                <span class="tech-chip">{{ tech }}</span>
+              }
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="project-actions">
+              <a
+                [href]="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-live"
+              >
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+                <span>Live Demo</span>
+              </a>
+
+              <a
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-github"
+              >
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <span>View Source</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</div>

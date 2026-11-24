@@ -1,0 +1,86 @@
+<div class="about-section">
+    <div class="about-container">
+        <!-- Section Header -->
+        <div class="section-head">
+            <span class="section-tag">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                About Me
+            </span>
+            <h2 class="section-title">
+                Crafting <span class="gradient-text">clean, scalable</span> interfaces that just feel right.
+            </h2>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="bento-grid">
+            <!-- Card 1: Main Bio -->
+            <article class="bento-card bio-card">
+                <div class="card-top-bar">
+                    <span class="company-badge">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        Currently &#64; Rensol Digital Pvt. Ltd.
+                    </span>
+                    <span class="dot-group" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                    </span>
+                </div>
+
+                <p class="bio-text">
+                    Experienced Frontend Developer with nearly 4 years of expertise in
+                    <strong>Angular</strong>, <strong>Ionic Framework</strong>, and
+                    <strong>TypeScript</strong>. Currently working at
+                    <strong>Rensol Digital Pvt. Ltd.</strong>, delivering robust and scalable
+                    solutions across diverse projects. Proficient in building dynamic,
+                    responsive web and mobile applications with a strong focus on user
+                    experience.
+                </p>
+
+                <p class="bio-text">
+                    Skilled in developing modular, scalable components, integrating APIs
+                    seamlessly, and leveraging modern features like
+                    <strong>Angular Signals</strong>. Adept at optimizing performance,
+                    managing state, and ensuring cross-platform compatibility. Passionate
+                    about delivering clean, maintainable code and continuously enhancing
+                    technical skills.
+                </p>
+            </article>
+
+            <!-- Card 2: Experience Stat -->
+            <article class="bento-card stat-card">
+                <div class="stat-icon">
+                    <i class="fa fa-rocket" aria-hidden="true"></i>
+                </div>
+                <div class="stat-number">~4<span>Yrs</span></div>
+                <p class="stat-caption">
+                    Shipping production-grade Angular &amp; Ionic apps across web and mobile.
+                </p>
+            </article>
+
+            <!-- Card 3: Core Focus -->
+            <article class="bento-card vibe-card">
+                <span class="mini-label">Core Stack</span>
+                <div class="stack-pills">
+                    <span>Angular</span>
+                    <span>Signals</span>
+                    <span>Ionic</span>
+                    <span>TypeScript</span>
+                    <span>RxJS</span>
+                    <span>SSR</span>
+                </div>
+            </article>
+
+            <!-- Card 4: 3 Craft Pillars -->
+            <div class="pillars-row">
+                @for (item of pillars; track item.title) {
+                <article class="bento-card pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fa" [ngClass]="item.icon" aria-hidden="true"></i>
+                    </div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.desc }}</p>
+                </article>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="experience-section">
+    <div class="experience-container">
+        <!-- Section Header -->
+        <div class="section-head">
+            <span class="section-tag">
+                <i class="fa fa-briefcase" aria-hidden="true"></i>
+                Professional Experience
+            </span>
+            <h2 class="section-title">
+                Where I've <span class="gradient-text">built &amp; scaled</span> production apps.
+            </h2>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            @for (exp of experiences; track exp.company) {
+            <article class="timeline-item" [class.current]="exp.isCurrent">
+                <!-- Timeline Node -->
+                <div class="timeline-marker" aria-hidden="true">
+                    <span class="marker-dot" [class.live]="exp.isCurrent"></span>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="exp-card">
+                    <div class="exp-top">
+                        <div class="role-block">
+                            <div class="role-row">
+                                <h3 class="role-title">{{ exp.role }}</h3>
+                                @if (exp.isCurrent) {
+                                <span class="live-badge">
+                                    <span class="live-dot"></span>
+                                    Current
+                                </span>
+                                }
+                            </div>
+                            <div class="company-row">
+                                <span class="company-name">{{ exp.company }}</span>
+                                <span class="sep">•</span>
+                                <span class="location">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    {{ exp.location }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <span class="period-pill">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            {{ exp.period }}
+                        </span>
+                    </div>
+
+                    <!-- Impact Tags -->
+                    <div class="tag-row">
+                        @for (tag of exp.tags; track tag) {
+                        <span class="impact-tag">{{ tag }}</span>
+                        }
+                    </div>
+
+                    <!-- Highlights -->
+                    <ul class="highlights-list">
+                        @for (point of exp.highlights; track point) {
+                        <li>
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <span>{{ point }}</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </article>
+            }
+        </div>
+    </div>
+</div>

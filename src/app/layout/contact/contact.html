@@ -1,0 +1,83 @@
+<div class="contact-section">
+    <div class="contact-container">
+        <!-- Main Glowing CTA Card -->
+        <div class="cta-hub">
+            <div class="cta-orb orb-left" aria-hidden="true"></div>
+            <div class="cta-orb orb-right" aria-hidden="true"></div>
+
+            <div class="cta-content">
+                <span class="availability-pill">
+                    <span class="pulse-dot"></span>
+                    Open for opportunities &amp; collaborations
+                </span>
+
+                <h2 class="cta-title">
+                    Got an idea or role? <br />
+                    <span class="gradient-text">Let's make it real.</span>
+                </h2>
+
+                <p class="cta-subtitle">
+                    Skip the forms—reach out directly via email or ping me on any of my socials below.
+                </p>
+
+                <!-- Interactive Email Dock -->
+                <div class="email-dock">
+                    <a [href]="'mailto:' + email" class="email-address">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <span>palhiranmoy99&#64;gmail.com</span>
+                    </a>
+
+                    <button type="button" class="copy-btn" [class.copied]="copied()" (click)="copyEmail()"
+                        aria-label="Copy email address">
+                        <i class="fa" [ngClass]="copied() ? 'fa-check' : 'fa-copy'" aria-hidden="true"></i>
+                        <span>{{ copied() ? 'Copied!' : 'Copy' }}</span>
+                    </button>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="cta-actions">
+                    <a [href]="'mailto:' + email" class="btn-primary">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        <span>Say Hello</span>
+                    </a>
+
+                    <a href="Hiranmoy-Pal-Resume.pdf" download="Hiranmoy-Pal-Resume.pdf" class="btn-secondary">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <span>Resume</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Bento Grid -->
+        <div class="social-bento" aria-label="Social Media Links">
+            @for (social of socialCards; track social.name) {
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-card">
+                <div class="social-top">
+                    <span class="social-icon">
+                        <i class="fa" [ngClass]="social.icon" aria-hidden="true"></i>
+                    </span>
+                    <i class="fa fa-external-link arrow-icon" aria-hidden="true"></i>
+                </div>
+
+                <div class="social-meta">
+                    <h3>{{ social.name }}</h3>
+                    <span>{{ social.handle }}</span>
+                </div>
+            </a>
+            }
+        </div>
+
+        <!-- Footer Copyright -->
+        <footer class="site-footer">
+            <p>
+                &copy; {{ currentYear }} <strong>Hiranmoy Pal</strong>. All rights reserved.
+            </p>
+
+            <a href="/home" class="back-top" aria-label="Back to top">
+                <span>Back to top</span>
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </a>
+        </footer>
+    </div>
+</div>
