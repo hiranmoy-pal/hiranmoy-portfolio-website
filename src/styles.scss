@@ -1,120 +1,557 @@
+//  ----------------------Pink theme --------------------------//
+
+
+// :root {
+//   /* =========================================
+//        LIGHT THEME (High Contrast Editorial Maroon)
+//     ========================================= */
+//   --primary: linear-gradient(to right, #BA284C 0%, #641386 100%);
+//   --primary-light: linear-gradient(to right, #D84C71 0%, #8D36B3 100%);
+//   --primary-soft: rgba(186, 40, 76, 0.12);
+//   --primary-solid: #BA284C;
+//   /* Increased opacity for clear visibility */
+
+//   /* Backgrounds & Surfaces (Crisp separation!) */
+//   --background: #F0EDEE;
+//   /* A distinct, cool grayish-blush so white cards POP */
+//   --surface: #FFFFFF;
+//   /* Pure white for cards to stand out */
+//   --surface-elevated: #FFFFFF;
+
+//   /* Category/Alt Surfaces */
+//   --category-bg: #E6E1E3;
+//   /* Visibly darker than the background */
+//   --category-card-bg: #FFFFFF;
+
+//   /* Text Colors (Sharper, deeper tones for readability) */
+//   --text-primary: #1A1113;
+//   /* Almost black */
+//   --text-secondary: #574B4E;
+//   /* Deep taupe/gray */
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #1A1113;
+//   --category-text: #3D3335;
+
+//   /* Semantic Status Colors */
+//   --danger: #D32F2F;
+//   --danger-hover: #B71C1C;
+//   --danger-soft: rgba(211, 47, 47, 0.12);
+//   --success: #14804A;
+//   --warning: #B56B00;
+//   --info: #1565C0;
+
+//   /* Borders, Shadows & States (Sharper borders!) */
+//   --border: #D1C7C9;
+//   /* Stronger border so inputs and cards are clearly framed */
+//   --outline: #BAA6AA;
+//   /* Stronger outline for focus states */
+
+//   /* Interactions (Doubled the opacity so you can actually SEE the hover!) */
+//   --hover-soft: rgba(186, 40, 76, 0.08);
+//   --hover-medium: rgba(186, 40, 76, 0.15);
+//   --active: rgba(186, 40, 76, 0.22);
+
+//   /* Shadows (Crisper shadows to lift elements off the background) */
+//   --shadow-soft: 0 4px 16px rgba(26, 17, 19, 0.06);
+//   --shadow-medium: 0 12px 32px rgba(186, 40, 76, 0.12);
+
+//   /* Typography & Specials */
+//   --font-headline: 'Manrope', sans-serif;
+//   --font-body: 'Inter', sans-serif;
+
+//   /* Editorial Pearl Gradient */
+//   --hero-gradient: linear-gradient(135deg, #F9F3F5 0%, #F4EAED 50%, #EBE2E5 100%);
+//   --overlay-bg: rgba(26, 17, 19, 0.55);
+// }
+
+// .dark-theme {
+//   /* =========================================
+//            DARK THEME (Cyber Sakura / Obsidian Plum)
+//         ========================================= */
+//   --primary: linear-gradient(90deg, #E62E6B 0%, #9B2CF3 100%);
+//   --primary-light: linear-gradient(90deg, #FF4D88 0%, #B34DFF 100%);
+//   --primary-solid: #E62E6B;
+//   --primary-soft: rgba(230, 46, 107, 0.14);
+
+//   /* Backgrounds & Surfaces (Deep Warm Obsidian-Plum) */
+//   --background: #0D090C;
+//   --surface: #161115;
+//   --surface-elevated: #211920;
+
+//   /* Category/Alt Surfaces */
+//   --category-bg: #120D11;
+//   --category-card-bg: #161115;
+
+//   /* Text Colors (Warm Off-White & Muted Rose-Gray) */
+//   --text-primary: #F7F2F5;
+//   --text-secondary: #A696A0;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #F7F2F5;
+//   --category-text: #C9BAC3;
+
+//   /* Semantic Status Colors (Matched to Reference Badges & Ratings) */
+//   --danger: #FF4D6D;
+//   --danger-hover: #FF244C;
+//   --danger-soft: rgba(255, 77, 109, 0.15);
+//   --success: #10D9A0;
+//   --warning: #F5B731;
+//   --info: #38BDF8;
+
+//   /* Borders & Outlines (Crisp Editorial Framing) */
+//   --border: #2C2129;
+//   --outline: rgba(230, 46, 107, 0.42);
+
+//   /* Interactions */
+//   --hover-soft: rgba(230, 46, 107, 0.09);
+//   --hover-medium: rgba(230, 46, 107, 0.18);
+//   --active: rgba(155, 44, 243, 0.24);
+
+//   /* Shadows (Deep Black Base + Subtle Magenta/Violet Ambient Glow) */
+//   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(230, 46, 107, 0.05);
+//   --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(155, 44, 243, 0.16);
+
+//   /* Ambient Plum-Magenta Hero Gradient */
+//   --hero-gradient: radial-gradient(circle at top center, rgba(230, 46, 107, 0.14) 0%, #0D090C 55%, #070507 100%);
+//   --overlay-bg: rgba(13, 9, 12, 0.86);
+// }
+
+//----------------------------- green theme ------------------------//
+
+// :root {
+//   /* =========================================
+//      LIGHT THEME (Editorial Emerald & Crisp Teal)
+//   ========================================= */
+//   --primary: linear-gradient(to right, #047857 0%, #0D9488 100%);
+//   --primary-light: linear-gradient(to right, #059669 0%, #14B8A6 100%);
+//   --primary-soft: rgba(5, 150, 105, 0.12);
+//   --primary-solid: #047857;
+
+//   /* Backgrounds & Surfaces */
+//   --background: #ECF2F0;
+//   --surface: #FFFFFF;
+//   --surface-elevated: #FFFFFF;
+
+//   /* Category / Alt Surfaces */
+//   --category-bg: #E1EAE7;
+//   --category-card-bg: #FFFFFF;
+
+//   /* Text Colors */
+//   --text-primary: #0D1B17;
+//   --text-secondary: #475B55;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #0D1B17;
+//   --category-text: #2E3F3A;
+
+//   /* Semantic Status Colors */
+//   --danger: #DC2626;
+//   --danger-hover: #B91C1C;
+//   --danger-soft: rgba(220, 38, 38, 0.12);
+//   --success: #059669;
+//   --warning: #B45309;
+//   --info: #0284C7;
+
+//   /* Borders, Shadows & States */
+//   --border: #C5D5D0;
+//   --outline: #8BB5A8;
+
+//   /* Interactions */
+//   --hover-soft: rgba(5, 150, 105, 0.08);
+//   --hover-medium: rgba(5, 150, 105, 0.15);
+//   --active: rgba(13, 148, 136, 0.22);
+
+//   /* Shadows */
+//   --shadow-soft: 0 4px 16px rgba(13, 27, 23, 0.06);
+//   --shadow-medium: 0 12px 32px rgba(4, 120, 87, 0.13);
+
+//   /* Typography & Specials */
+//   --font-headline: 'Manrope', sans-serif;
+//   --font-body: 'Inter', sans-serif;
+
+//   /* Mint-Pearl Hero Gradient */
+//   --hero-gradient: linear-gradient(135deg, #F3F9F7 0%, #E8F3EF 50%, #DFECE8 100%);
+//   --overlay-bg: rgba(13, 27, 23, 0.55);
+// }
+
+// .dark-theme {
+//   /* =========================================
+//      DARK THEME (Obsidian Emerald & Cyber Teal)
+//   ========================================= */
+//   --primary: linear-gradient(90deg, #059669 0%, #0D9488 100%);
+//   --primary-light: linear-gradient(90deg, #10B981 0%, #2DD4BF 100%);
+//   --primary-solid: #10B981;
+//   --primary-soft: rgba(16, 185, 129, 0.14);
+
+//   /* Backgrounds & Surfaces */
+//   --background: #070E0C;
+//   --surface: #0E1714;
+//   --surface-elevated: #15221E;
+
+//   /* Category / Alt Surfaces */
+//   --category-bg: #0A1210;
+//   --category-card-bg: #0E1714;
+
+//   /* Text Colors */
+//   --text-primary: #F0F7F4;
+//   --text-secondary: #92ABA3;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #F0F7F4;
+//   --category-text: #BDD0C9;
+
+//   /* Semantic Status Colors */
+//   --danger: #FB7185;
+//   --danger-hover: #F43F5E;
+//   --danger-soft: rgba(251, 113, 133, 0.15);
+//   --success: #34D399;
+//   --warning: #FBBF24;
+//   --info: #38BDF8;
+
+//   /* Borders & Outlines */
+//   --border: #1E302B;
+//   --outline: rgba(16, 185, 129, 0.42);
+
+//   /* Interactions */
+//   --hover-soft: rgba(16, 185, 129, 0.09);
+//   --hover-medium: rgba(16, 185, 129, 0.18);
+//   --active: rgba(20, 184, 166, 0.24);
+
+//   /* Shadows */
+//   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(16, 185, 129, 0.06);
+//   --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(20, 184, 166, 0.16);
+
+//   /* Ambient Emerald-Teal Hero Gradient */
+//   --hero-gradient: radial-gradient(circle at top center, rgba(16, 185, 129, 0.15) 0%, #070E0C 55%, #040807 100%);
+//   --overlay-bg: rgba(7, 14, 12, 0.86);
+// }
+
+// ---------------------------------- blue theme ------------------------//
+
+// :root {
+//   /* =========================================
+//      LIGHT THEME (Editorial Cobalt & Crisp Cyan)
+//   ========================================= */
+//   --primary: linear-gradient(to right, #1D4ED8 0%, #0284C7 100%);
+//   --primary-light: linear-gradient(to right, #2563EB 0%, #0EA5E9 100%);
+//   --primary-soft: rgba(29, 78, 216, 0.12);
+//   --primary-solid: #1D4ED8;
+
+//   /* Backgrounds & Surfaces */
+//   --background: #EDF2F8;
+//   --surface: #FFFFFF;
+//   --surface-elevated: #FFFFFF;
+
+//   /* Category / Alt Surfaces */
+//   --category-bg: #E1E8F2;
+//   --category-card-bg: #FFFFFF;
+
+//   /* Text Colors */
+//   --text-primary: #0F172A;
+//   --text-secondary: #475569;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #0F172A;
+//   --category-text: #334155;
+
+//   /* Semantic Status Colors */
+//   --danger: #DC2626;
+//   --danger-hover: #B91C1C;
+//   --danger-soft: rgba(220, 38, 38, 0.12);
+//   --success: #059669;
+//   --warning: #B45309;
+//   --info: #0284C7;
+
+//   /* Borders, Shadows & States */
+//   --border: #C7D5E5;
+//   --outline: #93B0D4;
+
+//   /* Interactions */
+//   --hover-soft: rgba(29, 78, 216, 0.08);
+//   --hover-medium: rgba(29, 78, 216, 0.15);
+//   --active: rgba(2, 132, 199, 0.22);
+
+//   /* Shadows */
+//   --shadow-soft: 0 4px 16px rgba(15, 23, 42, 0.06);
+//   --shadow-medium: 0 12px 32px rgba(29, 78, 216, 0.13);
+
+//   /* Typography & Specials */
+//   --font-headline: 'Manrope', sans-serif;
+//   --font-body: 'Inter', sans-serif;
+
+//   /* Ice-Blue Hero Gradient */
+//   --hero-gradient: linear-gradient(135deg, #F4F8FD 0%, #E8F0FA 50%, #DDE8F6 100%);
+//   --overlay-bg: rgba(15, 23, 42, 0.55);
+// }
+
+// .dark-theme {
+//   /* =========================================
+//      DARK THEME (Midnight Cobalt & Cyber Cyan)
+//   ========================================= */
+//   --primary: linear-gradient(90deg, #3B82F6 0%, #06B6D4 100%);
+//   --primary-light: linear-gradient(90deg, #60A5FA 0%, #22D3EE 100%);
+//   --primary-solid: #3B82F6;
+//   --primary-soft: rgba(59, 130, 246, 0.15);
+
+//   /* Backgrounds & Surfaces */
+//   --background: #070B14;
+//   --surface: #0E1525;
+//   --surface-elevated: #152036;
+
+//   /* Category / Alt Surfaces */
+//   --category-bg: #0A101D;
+//   --category-card-bg: #0E1525;
+
+//   /* Text Colors */
+//   --text-primary: #F1F5F9;
+//   --text-secondary: #94A3B8;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #F1F5F9;
+//   --category-text: #CBD5E1;
+
+//   /* Semantic Status Colors */
+//   --danger: #FB7185;
+//   --danger-hover: #F43F5E;
+//   --danger-soft: rgba(251, 113, 133, 0.15);
+//   --success: #34D399;
+//   --warning: #FBBF24;
+//   --info: #38BDF8;
+
+//   /* Borders & Outlines */
+//   --border: #1E2C47;
+//   --outline: rgba(59, 130, 246, 0.44);
+
+//   /* Interactions */
+//   --hover-soft: rgba(59, 130, 246, 0.10);
+//   --hover-medium: rgba(59, 130, 246, 0.18);
+//   --active: rgba(6, 182, 212, 0.24);
+
+//   /* Shadows */
+//   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(59, 130, 246, 0.06);
+//   --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(6, 182, 212, 0.16);
+
+//   /* Ambient Blue-Cyan Hero Gradient */
+//   --hero-gradient: radial-gradient(circle at top center, rgba(59, 130, 246, 0.16) 0%, #070B14 55%, #04070D 100%);
+//   --overlay-bg: rgba(7, 11, 20, 0.86);
+// }
+
+//----------------------violet theme----------------------------//
+
 :root {
-    /* =========================================
-       LIGHT THEME (High Contrast Editorial Maroon)
-    ========================================= */
-    --primary: linear-gradient(to right, #BA284C 0%, #641386 100%);
-    --primary-light: linear-gradient(to right, #D84C71 0%, #8D36B3 100%);
-    --primary-soft: rgba(186, 40, 76, 0.12);
-    --primary-solid: #BA284C;
-    /* Increased opacity for clear visibility */
+  /* =========================================
+     LIGHT THEME (Editorial Violet & Indigo)
+  ========================================= */
+  --primary: linear-gradient(to right, #5B21B6 0%, #4338CA 100%);
+  --primary-light: linear-gradient(to right, #7C3AED 0%, #4F46E5 100%);
+  --primary-soft: rgba(91, 33, 182, 0.12);
+  --primary-solid: #5B21B6;
 
-    /* Backgrounds & Surfaces (Crisp separation!) */
-    --background: #F0EDEE;
-    /* A distinct, cool grayish-blush so white cards POP */
-    --surface: #FFFFFF;
-    /* Pure white for cards to stand out */
-    --surface-elevated: #FFFFFF;
+  /* Backgrounds & Surfaces */
+  --background: #EFEFF8;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
 
-    /* Category/Alt Surfaces */
-    --category-bg: #E6E1E3;
-    /* Visibly darker than the background */
-    --category-card-bg: #FFFFFF;
+  /* Category / Alt Surfaces */
+  --category-bg: #E3E4F2;
+  --category-card-bg: #FFFFFF;
 
-    /* Text Colors (Sharper, deeper tones for readability) */
-    --text-primary: #1A1113;
-    /* Almost black */
-    --text-secondary: #574B4E;
-    /* Deep taupe/gray */
-    --text-tertiary: #FFFFFF;
-    --category-title: #1A1113;
-    --category-text: #3D3335;
+  /* Text Colors */
+  --text-primary: #111026;
+  --text-secondary: #4C4B6B;
+  --text-tertiary: #FFFFFF;
+  --category-title: #111026;
+  --category-text: #31304D;
 
-    /* Semantic Status Colors */
-    --danger: #D32F2F;
-    --danger-hover: #B71C1C;
-    --danger-soft: rgba(211, 47, 47, 0.12);
-    --success: #14804A;
-    --warning: #B56B00;
-    --info: #1565C0;
+  /* Semantic Status Colors */
+  --danger: #DC2626;
+  --danger-hover: #B91C1C;
+  --danger-soft: rgba(220, 38, 38, 0.12);
+  --success: #059669;
+  --warning: #B45309;
+  --info: #0284C7;
 
-    /* Borders, Shadows & States (Sharper borders!) */
-    --border: #D1C7C9;
-    /* Stronger border so inputs and cards are clearly framed */
-    --outline: #BAA6AA;
-    /* Stronger outline for focus states */
+  /* Borders, Shadows & States */
+  --border: #C9CAE2;
+  --outline: #9D9FCE;
 
-    /* Interactions (Doubled the opacity so you can actually SEE the hover!) */
-    --hover-soft: rgba(186, 40, 76, 0.08);
-    --hover-medium: rgba(186, 40, 76, 0.15);
-    --active: rgba(186, 40, 76, 0.22);
+  /* Interactions */
+  --hover-soft: rgba(91, 33, 182, 0.08);
+  --hover-medium: rgba(91, 33, 182, 0.15);
+  --active: rgba(67, 56, 202, 0.22);
 
-    /* Shadows (Crisper shadows to lift elements off the background) */
-    --shadow-soft: 0 4px 16px rgba(26, 17, 19, 0.06);
-    --shadow-medium: 0 12px 32px rgba(186, 40, 76, 0.12);
+  /* Shadows */
+  --shadow-soft: 0 4px 16px rgba(17, 16, 38, 0.06);
+  --shadow-medium: 0 12px 32px rgba(91, 33, 182, 0.13);
 
-    /* Typography & Specials */
-    --font-headline: 'Manrope', sans-serif;
-    --font-body: 'Inter', sans-serif;
+  /* Typography & Specials */
+  --font-headline: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
-    /* Editorial Pearl Gradient */
-    --hero-gradient: linear-gradient(135deg, #F9F3F5 0%, #F4EAED 50%, #EBE2E5 100%);
-    --overlay-bg: rgba(26, 17, 19, 0.55);
+  /* Periwinkle-Pearl Hero Gradient */
+  --hero-gradient: linear-gradient(135deg, #F6F6FD 0%, #ECECFA 50%, #E1E2F5 100%);
+  --overlay-bg: rgba(17, 16, 38, 0.55);
 }
 
 .dark-theme {
-    /* =========================================
-           DARK THEME (Cyber Sakura / Obsidian Plum)
-        ========================================= */
-    --primary: linear-gradient(90deg, #E62E6B 0%, #9B2CF3 100%);
-    --primary-light: linear-gradient(90deg, #FF4D88 0%, #B34DFF 100%);
-    --primary-solid: #E62E6B;
-    --primary-soft: rgba(230, 46, 107, 0.14);
+  /* =========================================
+     DARK THEME (Void Indigo & Electric Violet)
+  ========================================= */
+  --primary: linear-gradient(90deg, #8B5CF6 0%, #6366F1 100%);
+  --primary-light: linear-gradient(90deg, #A78BFA 0%, #818CF8 100%);
+  --primary-solid: #8B5CF6;
+  --primary-soft: rgba(139, 92, 246, 0.15);
 
-    /* Backgrounds & Surfaces (Deep Warm Obsidian-Plum) */
-    --background: #0D090C;
-    --surface: #161115;
-    --surface-elevated: #211920;
+  /* Backgrounds & Surfaces */
+  --background: #080814;
+  --surface: #101024;
+  --surface-elevated: #181834;
 
-    /* Category/Alt Surfaces */
-    --category-bg: #120D11;
-    --category-card-bg: #161115;
+  /* Category / Alt Surfaces */
+  --category-bg: #0B0B1B;
+  --category-card-bg: #101024;
 
-    /* Text Colors (Warm Off-White & Muted Rose-Gray) */
-    --text-primary: #F7F2F5;
-    --text-secondary: #A696A0;
-    --text-tertiary: #FFFFFF;
-    --category-title: #F7F2F5;
-    --category-text: #C9BAC3;
+  /* Text Colors */
+  --text-primary: #F2F2FC;
+  --text-secondary: #9797BA;
+  --text-tertiary: #FFFFFF;
+  --category-title: #F2F2FC;
+  --category-text: #C4C4DF;
 
-    /* Semantic Status Colors (Matched to Reference Badges & Ratings) */
-    --danger: #FF4D6D;
-    --danger-hover: #FF244C;
-    --danger-soft: rgba(255, 77, 109, 0.15);
-    --success: #10D9A0;
-    --warning: #F5B731;
-    --info: #38BDF8;
+  /* Semantic Status Colors */
+  --danger: #FB7185;
+  --danger-hover: #F43F5E;
+  --danger-soft: rgba(251, 113, 133, 0.15);
+  --success: #34D399;
+  --warning: #FBBF24;
+  --info: #38BDF8;
 
-    /* Borders & Outlines (Crisp Editorial Framing) */
-    --border: #2C2129;
-    --outline: rgba(230, 46, 107, 0.42);
+  /* Borders & Outlines */
+  --border: #222244;
+  --outline: rgba(139, 92, 246, 0.44);
 
-    /* Interactions */
-    --hover-soft: rgba(230, 46, 107, 0.09);
-    --hover-medium: rgba(230, 46, 107, 0.18);
-    --active: rgba(155, 44, 243, 0.24);
+  /* Interactions */
+  --hover-soft: rgba(139, 92, 246, 0.10);
+  --hover-medium: rgba(139, 92, 246, 0.18);
+  --active: rgba(99, 102, 241, 0.24);
 
-    /* Shadows (Deep Black Base + Subtle Magenta/Violet Ambient Glow) */
-    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(230, 46, 107, 0.05);
-    --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(155, 44, 243, 0.16);
+  /* Shadows */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(139, 92, 246, 0.06);
+  --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(99, 102, 241, 0.16);
 
-    /* Ambient Plum-Magenta Hero Gradient */
-    --hero-gradient: radial-gradient(circle at top center, rgba(230, 46, 107, 0.14) 0%, #0D090C 55%, #070507 100%);
-    --overlay-bg: rgba(13, 9, 12, 0.86);
+  /* Ambient Violet-Indigo Hero Gradient */
+  --hero-gradient: radial-gradient(circle at top center, rgba(139, 92, 246, 0.16) 0%, #080814 55%, #04040C 100%);
+  --overlay-bg: rgba(8, 8, 20, 0.86);
 }
+
+//------------------------ purple theme--------------------//
+// :root {
+//   /* =========================================
+//      LIGHT THEME (Editorial Royal Purple & Amethyst)
+//   ========================================= */
+//   --primary: linear-gradient(to right, #7E22CE 0%, #C026D3 100%);
+//   --primary-light: linear-gradient(to right, #9333EA 0%, #D946EF 100%);
+//   --primary-soft: rgba(126, 34, 206, 0.12);
+//   --primary-solid: #7E22CE;
+
+//   /* Backgrounds & Surfaces */
+//   --background: #F3EFF7;
+//   --surface: #FFFFFF;
+//   --surface-elevated: #FFFFFF;
+
+//   /* Category / Alt Surfaces */
+//   --category-bg: #E9E2F0;
+//   --category-card-bg: #FFFFFF;
+
+//   /* Text Colors */
+//   --text-primary: #180F24;
+//   --text-secondary: #574A68;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #180F24;
+//   --category-text: #3C304B;
+
+//   /* Semantic Status Colors */
+//   --danger: #DC2626;
+//   --danger-hover: #B91C1C;
+//   --danger-soft: rgba(220, 38, 38, 0.12);
+//   --success: #059669;
+//   --warning: #B45309;
+//   --info: #0284C7;
+
+//   /* Borders, Shadows & States */
+//   --border: #D6CBE2;
+//   --outline: #B49ECE;
+
+//   /* Interactions */
+//   --hover-soft: rgba(126, 34, 206, 0.08);
+//   --hover-medium: rgba(126, 34, 206, 0.15);
+//   --active: rgba(192, 38, 211, 0.22);
+
+//   /* Shadows */
+//   --shadow-soft: 0 4px 16px rgba(24, 15, 36, 0.06);
+//   --shadow-medium: 0 12px 32px rgba(126, 34, 206, 0.13);
+
+//   /* Typography & Specials */
+//   --font-headline: 'Manrope', sans-serif;
+//   --font-body: 'Inter', sans-serif;
+
+//   /* Lavender-Pearl Hero Gradient */
+//   --hero-gradient: linear-gradient(135deg, #F9F5FD 0%, #F1E9F9 50%, #E7DCF4 100%);
+//   --overlay-bg: rgba(24, 15, 36, 0.55);
+// }
+
+// .dark-theme {
+//   /* =========================================
+//      DARK THEME (Obsidian Plum & Neon Amethyst)
+//   ========================================= */
+//   --primary: linear-gradient(90deg, #A855F7 0%, #E879F9 100%);
+//   --primary-light: linear-gradient(90deg, #C084FC 0%, #F0ABFC 100%);
+//   --primary-solid: #A855F7;
+//   --primary-soft: rgba(168, 85, 247, 0.15);
+
+//   /* Backgrounds & Surfaces */
+//   --background: #0B0712;
+//   --surface: #140E20;
+//   --surface-elevated: #1E1530;
+
+//   /* Category / Alt Surfaces */
+//   --category-bg: #0E0917;
+//   --category-card-bg: #140E20;
+
+//   /* Text Colors */
+//   --text-primary: #F6F2FC;
+//   --text-secondary: #A698BA;
+//   --text-tertiary: #FFFFFF;
+//   --category-title: #F6F2FC;
+//   --category-text: #CFC3DF;
+
+//   /* Semantic Status Colors */
+//   --danger: #FB7185;
+//   --danger-hover: #F43F5E;
+//   --danger-soft: rgba(251, 113, 133, 0.15);
+//   --success: #34D399;
+//   --warning: #FBBF24;
+//   --info: #38BDF8;
+
+//   /* Borders & Outlines */
+//   --border: #2A1F3D;
+//   --outline: rgba(168, 85, 247, 0.44);
+
+//   /* Interactions */
+//   --hover-soft: rgba(168, 85, 247, 0.10);
+//   --hover-medium: rgba(168, 85, 247, 0.18);
+//   --active: rgba(232, 121, 249, 0.24);
+
+//   /* Shadows */
+//   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(168, 85, 247, 0.06);
+//   --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 28px rgba(232, 121, 249, 0.16);
+
+//   /* Ambient Purple-Amethyst Hero Gradient */
+//   --hero-gradient: radial-gradient(circle at top center, rgba(168, 85, 247, 0.16) 0%, #0B0712 55%, #06040A 100%);
+//   --overlay-bg: rgba(11, 7, 18, 0.86);
+// }
+
+
 
 /* Replace the bottom of your styles.scss with this */
 html {
-  scroll-behavior: auto; /* Handled smoothly by ScrollService */
+  scroll-behavior: auto;
+  /* Handled smoothly by ScrollService */
 }
 
 body {

@@ -1,14 +1,18 @@
 import { Location, isPlatformBrowser } from '@angular/common';
-import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { Injectable, NgZone, PLATFORM_ID, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 export class ScrollService {
     private platformId = inject(PLATFORM_ID);
     private location = inject(Location);
-    private animationFrameId: number | null = null;
-
+    private ngZone = inject(NgZone);
     private titleService = inject(Title);
+
+    private animationFrameId: number | null = null;
+    private urlTimer: ReturnType<typeof setTimeout> | null = null;
+
+    isProgrammaticScroll = false;
 
     private readonly sectionTitles: Record<string, string> = {
         home: 'Hiranmoy Pal | Frontend Developer (Angular, Ionic & TypeScript)',
@@ -20,25 +24,34 @@ export class ScrollService {
         contact: 'Contact | Hiranmoy Pal',
     };
 
-    isProgrammaticScroll = false;
-
-    updateUrl(sectionId: string): void {
+    updateUrl(sectionId: string, immediate = false): void {
         if (!isPlatformBrowser(this.platformId)) return;
 
-        const targetPath = sectionId === 'home' ? '/' : `/${sectionId}`;
-        const currentPath = this.location.path(true) || '/';
-
-        if (currentPath !== targetPath) {
-            this.location.replaceState(targetPath);
+        if (this.urlTimer) {
+            clearTimeout(this.urlTimer);
         }
 
-        // Inside updateUrl(sectionId: string):
-        this.titleService.setTitle(
-            this.sectionTitles[sectionId] ?? this.sectionTitles['home']
-        );
+        const applyUpdate = () => {
+            const targetPath = sectionId === 'home' ? '/' : `/${sectionId}`;
+            const currentPath = this.location.path(true) || '/';
+
+            if (currentPath !== targetPath) {
+                this.location.replaceState(targetPath);
+            }
+            this.titleService.setTitle(
+                this.sectionTitles[sectionId] ?? this.sectionTitles['home']
+            );
+        };
+
+        if (immediate) {
+            applyUpdate();
+        } else {
+            // Debounce URL updates during fast manual scroll to avoid main-thread stutter
+            this.urlTimer = setTimeout(applyUpdate, 120);
+        }
     }
 
-    scrollToSection(sectionId: string, event?: Event, duration = 900): void {
+    scrollToSection(sectionId: string, event?: Event, duration = 850): void {
         if (event) {
             event.preventDefault();
         }
@@ -52,7 +65,7 @@ export class ScrollService {
         }
 
         this.isProgrammaticScroll = true;
-        this.updateUrl(sectionId);
+        this.updateUrl(sectionId, true);
 
         const headerOffset = 84;
         const startY = window.scrollY;
@@ -61,26 +74,38 @@ export class ScrollService {
                 ? 0
                 : target.getBoundingClientRect().top + startY - headerOffset;
         const distance = targetY - startY;
+
+        if (Math.abs(distance) < 2) {
+            this.isProgrammaticScroll = false;
+            return;
+        }
+
         const startTime = performance.now();
 
         const easeInOutCubic = (t: number): number =>
             t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-        const step = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = easeInOutCubic(progress);
+        // Run outside NgZone so Angular doesn't run change detection 60-120x/sec
+        this.ngZone.runOutsideAngular(() => {
+            const step = (currentTime: number) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutCubic(progress);
 
-            window.scrollTo(0, startY + distance * eased);
+                window.scrollTo({
+                    top: startY + distance * eased,
+                    behavior: 'instant' as ScrollBehavior,
+                });
 
-            if (progress < 1) {
-                this.animationFrameId = requestAnimationFrame(step);
-            } else {
-                this.animationFrameId = null;
-                this.isProgrammaticScroll = false;
-            }
-        };
+                if (progress < 1) {
+                    this.animationFrameId = requestAnimationFrame(step);
+                } else {
+                    this.animationFrameId = null;
+                    this.isProgrammaticScroll = false;
+                }
+            };
 
-        this.animationFrameId = requestAnimationFrame(step);
+            this.animationFrameId = requestAnimationFrame(step);
+        });
     }
 }

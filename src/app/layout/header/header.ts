@@ -1,11 +1,14 @@
-import { CommonModule, isPlatformBrowser, Location } from '@angular/common';
+import { CommonModule, Location, isPlatformBrowser } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
-  HostListener,
+  NgZone,
+  OnDestroy,
   OnInit,
   PLATFORM_ID,
   inject,
   signal,
+  HostListener
 } from '@angular/core';
 import { ScrollService } from '../../services/scroll';
 
@@ -32,6 +35,8 @@ export class Header implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private scrollService = inject(ScrollService);
   private location = inject(Location);
+  private ngZone = inject(NgZone);
+
   private sectionObserver: IntersectionObserver | null = null;
   private scrollListener?: () => void;
 
@@ -84,49 +89,60 @@ export class Header implements OnInit {
   ];
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const savedTheme = localStorage.getItem('theme');
-      const hasDarkClass =
-        document.documentElement.classList.contains('dark-theme');
-      this.isDark.set(savedTheme === 'dark' || hasDarkClass);
+    if (!isPlatformBrowser(this.platformId)) return;
 
-      const onScroll = () => this.isScrolled.set(window.scrollY > 20);
+    const savedTheme = localStorage.getItem('theme');
+    const hasDarkClass =
+      document.documentElement.classList.contains('dark-theme');
+    this.isDark.set(savedTheme === 'dark' || hasDarkClass);
+
+    this.ngZone.runOutsideAngular(() => {
+      const onScroll = () => {
+        const scrolled = window.scrollY > 20;
+        if (scrolled !== this.isScrolled()) {
+          this.ngZone.run(() => this.isScrolled.set(scrolled));
+        }
+      };
+
       window.addEventListener('scroll', onScroll, { passive: true });
-      this.scrollListener = () => window.removeEventListener('scroll', onScroll);
-    }
+      this.scrollListener = () =>
+        window.removeEventListener('scroll', onScroll);
+    });
   }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
 
-    // Strip any leftover #hash from the URL on load
     const initialPath = this.location.path().replace(/^\//, '');
     if (initialPath && this.navItems.some((item) => item.id === initialPath)) {
       this.activeSection.set(initialPath);
       setTimeout(() => this.scrollService.scrollToSection(initialPath), 100);
     } else if (window.location.hash) {
-      this.scrollService.updateUrl('home');
+      this.scrollService.updateUrl('home', true);
     }
 
-    // Update active menu + URL cleanly on manual scroll
-    this.sectionObserver = new IntersectionObserver(
-      (entries) => {
-        if (this.scrollService.isProgrammaticScroll) return;
+    this.ngZone.runOutsideAngular(() => {
+      this.sectionObserver = new IntersectionObserver(
+        (entries) => {
+          if (this.scrollService.isProgrammaticScroll) return;
 
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            this.activeSection.set(id);
-            this.scrollService.updateUrl(id);
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              if (id !== this.activeSection()) {
+                this.ngZone.run(() => this.activeSection.set(id));
+                this.scrollService.updateUrl(id);
+              }
+            }
           }
-        });
-      },
-      { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
-    );
+        },
+        { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+      );
 
-    this.navItems.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) this.sectionObserver?.observe(el);
+      this.navItems.forEach((item) => {
+        const el = document.getElementById(item.id);
+        if (el) this.sectionObserver?.observe(el);
+      });
     });
   }
 
